@@ -1,0 +1,55 @@
+---
+title: "Practical-1"
+author: "Troy Bisnath"
+output: html_document
+---
+
+## Practical 1
+
+```{r}
+#Question 1:
+missing_rows <- airquality[!complete.cases(airquality), ]
+missing_rows
+
+#Question 2:
+#mean for temperature:
+temperature_mean <- mean(airquality[,4])
+temperature_mean
+#mean for ozone level:
+ozone_mean <- mean(airquality[,1], na.rm = TRUE)
+ozone_mean
+#standard deviation for temperature:
+temp_sd <- sd(airquality[,4])
+temp_sd
+#standard deviation for ozone level:
+ozone_sd <- sd(airquality[,1], na.rm = TRUE)
+ozone_sd
+#min temperature:
+temp_min <- min(airquality[,4])
+temp_min
+#min ozone leveL:
+ozone_min <- min(airquality[,1], na.rm = TRUE)
+ozone_min
+#max temperature:
+temp_max <- max(airquality[,4])
+temp_max
+
+#max ozone level:
+ozone_max <- max(airquality[,1], na.rm = TRUE)
+ozone_max
+
+#Question 3:
+#building the design matrix X 
+X <- cbind(1, cars$speed)
+#Y is response vector
+Y <- cars$dist
+#calculation of parameter estimates using following formula
+beta <- solve(t(X) %*% X) %*% t(X) %*% Y
+beta
+
+#Question 4:
+x <- cars$speed
+y <- cars$dist
+dist_model = lm(dist ~ speed, data = cars)
+dist_model
+```
